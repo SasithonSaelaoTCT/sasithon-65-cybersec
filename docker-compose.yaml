@@ -1,23 +1,22 @@
 version: '3'
-services: 
+services:
   db: 
-    container_name: my-group-db
-    image: postgres:latest
+    container_name: SasithonTCT
+    image:  postgres:latest
     environment:
       - POSTGRES_PASSWORD=${DB_PASS}
     ports:
       - 5555:5432
     restart: always
   auth:
-    container_name: ced-auth
+    container_name : ced-dev
     image: fusionauth/fusionauth-app
-    port:
+    ports:
       - 9011:9011
     restart: always
-    evironment:
-      - DATABASE_URL=jdbc:postgresql://db:5432/ced_dev
+    environment:
+      - DATABASE_URL=jdbc:postgresql://db:5432/postgres
       - DATABASE_USERNAME=postgres
       - DATABASE_PASSWORD=${DB_PASS}
-
 
 
