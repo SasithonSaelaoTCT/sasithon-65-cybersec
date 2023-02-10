@@ -8,5 +8,16 @@ services:
     ports:
     - 5555:5432
     restart: always
+  auth:
+    container_name: my-group-db
+    image: fusionauth/fusionauth-app
+    port:
+     - 9011:9011
+    restart: always
+    evironment:
+     - DATABASE_URL=jdbc:postgresql://db:5432/my-group-db
+     - DATABASE_USERNAME=postgres
+     - DATABASE_PASSWORD=${DB_PASS}
+
 
 
