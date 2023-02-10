@@ -9,7 +9,7 @@ services:
     - 5555:5432
     restart: always
   auth:
-    container_name: my-group-db
+    container_name: ced-auth
     image: fusionauth/fusionauth-app
     port:
      - 9011:9011
